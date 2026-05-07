@@ -35,16 +35,12 @@ const Error = styled.span`
   font-size: 1.4rem;
   color: var(--color-red-700);
 `;
-function FormRow() {
+function FormRow({label,error,children}) {
     return (
         <StyledFormRow>
-        <Label htmlFor="name">Cabin name</Label>
-        <Input type="text" id="name" {...register("name",{
-          required:"This field is required"
-        })} />
-        {
-          errors?.name?.message && <Error>{errors.name.message}</Error>
-        }
+        { label && <Label htmlFor={children.props.id}>{label}</Label>}
+        {children}
+        { error && <Error>{error}</Error>}
       </StyledFormRow>
     )
 }

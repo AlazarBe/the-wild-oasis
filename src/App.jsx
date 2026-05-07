@@ -12,7 +12,7 @@ import Login from "./pages/Login"
 import PageNotFound from "./pages/PageNotFound"
 import AppLayout from "./ui/AppLayout"
 import { Toaster } from "react-hot-toast"
-import { GiDuration } from "react-icons/gi"
+
 
 
 const queryClient=new QueryClient({
