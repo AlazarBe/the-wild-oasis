@@ -7,7 +7,7 @@ import FileInput from "../../ui/FileInput";
 import Textarea from "../../ui/Textarea";
 import { useForm } from "react-hook-form";
 import { createCabin } from "../../services/apiCabins";
-import FormRow from "../../ui/FromRow";
+import FormRow from "../../ui/FormRow";
 
 
 function CreateCabinForm() {
