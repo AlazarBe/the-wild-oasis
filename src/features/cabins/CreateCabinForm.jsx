@@ -60,7 +60,7 @@ const isWorking=isCreating || isEditing
     // console.log(errors)
   }
   return (
-    <Form onSubmit={handleSubmit(onSubmit,onError) } type={onCloseModal ? 'Modas': 'regular'}>
+    <Form onSubmit={handleSubmit(onSubmit,onError) } type={onCloseModal ? 'Modal': 'regular'}>
 
       <FormRow label="Cabin Name" error={errors?.name?.message}>
         <Input type="text"
