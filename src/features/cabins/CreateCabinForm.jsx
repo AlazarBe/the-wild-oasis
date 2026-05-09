@@ -9,7 +9,7 @@ import { useCreateCabin } from "./useCreateCabin";
 import { useEditCabin } from "./useEditCabin";
 
 
-function CreateCabinForm({cabinToEdit={}}) {
+function CreateCabinForm({cabinToEdit={},onCloseModal}) {
 
   const {isCreating,createCabin}=useCreateCabin()
   const {isEditing,editCabin}=useEditCabin()
@@ -38,7 +38,9 @@ const isWorking=isCreating || isEditing
       {
     onSuccess: (data)=>{
       console.log(data)
-      reset()}
+      reset()
+    onCloseModal?.() 
+    }
   })
       else
     createCabin(
@@ -46,7 +48,10 @@ const isWorking=isCreating || isEditing
   {
     onSuccess: (data)=>{
       console.log(data)
-      reset()}
+      reset()
+    onCloseModal?.()
+  }
+      
   }
 )
   }
@@ -55,7 +60,7 @@ const isWorking=isCreating || isEditing
     // console.log(errors)
   }
   return (
-    <Form onSubmit={handleSubmit(onSubmit,onError)}>
+    <Form onSubmit={handleSubmit(onSubmit,onError) } type={onCloseModal ? 'Modas': 'regular'}>
 
       <FormRow label="Cabin Name" error={errors?.name?.message}>
         <Input type="text"
@@ -130,7 +135,7 @@ const isWorking=isCreating || isEditing
 
       <FormRow>
         {/* type is an HTML attribute! */}
-        <Button variation="secondary" type="reset" >
+        <Button variation="secondary" type="reset" onClick={()=>onCloseModal?.()}>
           Cancel
         </Button>
         <Button disabled={isWorking}>{isEditSession ?"Edit Cabin": "Create new cabin"}</Button>
