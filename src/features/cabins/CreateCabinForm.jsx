@@ -99,13 +99,13 @@ const isWorking=isCreating || isEditing
         })}/>
       </FormRow>
 
-      <FormRow label="DisCount" error={errors?.disCount?.message}>
+      <FormRow label="Discount" error={errors?.discount?.message}>
 
         <Input type="number"
-         id="disCount" 
+         id="discount" 
          disabled={isWorking}
          defaultValue={0} 
-         {...register("disCount",{
+         {...register("discount",{
           required:"This field is required",
           validate:(value)=>Number(value) <= Number(getValues().regularPrice) || 
           "Discount should be less than regular price"

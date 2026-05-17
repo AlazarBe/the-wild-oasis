@@ -56,7 +56,7 @@ function CabinRow({cabin}) {
    name,
    maxCapacity,
    regularPrice,
-   disCount,
+   discount,
    image,
    description,
  }=cabin
@@ -65,7 +65,7 @@ createCabin({
 name:`copy of ${name}`,
 maxCapacity,
 regularPrice,
-disCount,
+discount,
 image,
 description
 
@@ -80,8 +80,8 @@ description
     <Cabin>{name}</Cabin>
     <div>fits up to {maxCapacity} guests</div>
    <Price>{formatCurrency(regularPrice)}</Price>
-   {disCount ?(
-     <Discount>{formatCurrency(disCount)}</Discount> 
+   {discount ?(
+     <Discount>{formatCurrency(discount)}</Discount> 
     )
    : 
    (
